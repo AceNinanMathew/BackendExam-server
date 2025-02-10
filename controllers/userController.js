@@ -43,3 +43,13 @@ exports.allUsersController = async(req,res) =>{
         res.status(401).json(err)
     } 
 }
+
+exports.LoggedUserDetailsController = async(req,res) =>{
+    const userId = req.userId
+    try{
+        const userDetails = await users.findById({_id:userId}).select('-password')
+        res.status(200).json(userDetails)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}

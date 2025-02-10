@@ -12,4 +12,7 @@ router.post('/login',userController.loginController)
 //display allusers
 router.get('/allUsers',jwtMiddleware,userController.allUsersController)
 
+//display logged user
+router.get('/loggedUser',jwtMiddleware,userController.LoggedUserDetailsController)
+
 module.exports = router
